@@ -6,7 +6,7 @@ import { Label } from "@inubekit/label";
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
-interface ISwitchProps {
+export interface ISwitchProps {
   id: string;
   name?: string;
   value?: string;
@@ -44,12 +44,12 @@ export const Switch = (props: ISwitchProps) => {
     >
       <StyledContainer $size={size}>
         <StyledInput
-          $id={id}
+          id={id}
           $type="checkbox"
           $size={size}
-          $value={value}
-          $checked={checked}
-          $onChange={onChange}
+          value={value}
+          checked={checked}
+          onChange={onChange}
           $disabled={disabled}
           $name={name}
         />

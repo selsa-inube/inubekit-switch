@@ -13,7 +13,7 @@ const sizes = {
   },
 };
 
-export const StyledSpan = styled.span`
+const StyledSpan = styled.span`
   position: absolute;
   top: ${inube.spacing.s0};
   left: ${inube.spacing.s0};
@@ -21,7 +21,7 @@ export const StyledSpan = styled.span`
   bottom: ${inube.spacing.s0};
   transition: 0.1s;
   border-radius: 30px;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
   background: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.color?.surface?.gray?.disabled ||
@@ -52,8 +52,8 @@ export const StyledSpan = styled.span`
         theme?.color?.stroke?.light?.disabled ||
         inube.color.stroke.gray.disabled
       }`};
-    ${($props) =>
-      $props.size === "small"
+    ${({ $size }) =>
+      $size === "small"
         ? css`
             width: 12px;
             height: 12px;
@@ -67,13 +67,13 @@ export const StyledSpan = styled.span`
   }
 `;
 
-export const StyledContainer = styled.label`
+const StyledContainer = styled.label`
   position: relative;
   display: inline-block;
-  ${($props, $sizes) => $props.size && $sizes[$props.size]};
+  ${({ $size }) => $size && sizes[$size]};
 `;
 
-export const StyledInput = styled.input`
+const StyledInput = styled.input`
   opacity: 0;
   width: 0;
   height: 0;
@@ -99,29 +99,30 @@ export const StyledInput = styled.input`
   &:checked + span:before {
     left: ${({ $size }) =>
       $size === "small" ? `-${inube.spacing.s025}` : `${inube.spacing.s025}`};
-    ${($size) =>
+    ${({ $size }) =>
       $size === "small"
         ? "transform: translateX(16px);"
-        : "transform: translateX(20px);"};
+        : "transform: translateX(20px);"}
+  }
   }
 `;
 
-export const StyledIcon = styled.div`
+const StyledIcon = styled.div`
   & > #mdIcon {
     position: absolute;
     color: ${({ $disabled }) =>
       !$disabled
         ? inube.color.surface.light.regular
         : inube.color.stroke.gray.disabled};
-    ${($props) =>
-      $props.size === "small"
+    ${({ $size }) =>
+      $size === "small"
         ? css`
             width: 10px;
             height: 10px;
             padding-left ${inube.spacing.s025};
             top: calc(${inube.spacing.s075} / 2);
-            left: ${($props) =>
-              $props.checked
+            left: ${(props) =>
+              props.checked
                 ? `calc(${inube.spacing.s075} / 2)`
                 : `${inube.spacing.s200}`};
           `
@@ -129,10 +130,12 @@ export const StyledIcon = styled.div`
             width: 14px;
             height: 14px;
             top: calc(${inube.spacing.s075} / 2);
-            left: ${($props) =>
-              $props.checked
+            left: ${(props) =>
+              props.checked
                 ? `${inube.spacing.s050}`
                 : `${inube.spacing.s250}`};
           `};
   }
 `;
+
+export { StyledContainer, StyledInput, StyledSpan, StyledIcon };
