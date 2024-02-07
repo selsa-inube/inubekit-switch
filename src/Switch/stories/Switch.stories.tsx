@@ -30,6 +30,7 @@ Default.args = {
   onChange: action("checked"),
   margin: "s0",
   padding: "s0",
+  label: "",
 };
 
 const theme = {
