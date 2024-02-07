@@ -45,13 +45,13 @@ export const Switch = (props: ISwitchProps) => {
       <StyledContainer $size={size}>
         <StyledInput
           id={id}
-          $type="checkbox"
+          type="checkbox"
           $size={size}
           value={value}
           checked={checked}
           onChange={onChange}
-          $disabled={disabled}
-          $name={name}
+          disabled={disabled}
+          name={name}
         />
         <StyledSpan $size={size} $disabled={disabled} $checked={checked}>
           {checked ? (

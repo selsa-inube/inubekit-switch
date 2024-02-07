@@ -5,6 +5,8 @@ import { ThemeProvider } from "styled-components";
 import { presente } from "@inubekit/foundations";
 import { props, parameters } from "../props";
 
+import { action } from "@storybook/addon-actions";
+
 const story = {
   title: "inputs/Switch",
   components: [Switch],
@@ -25,7 +27,7 @@ Default.args = {
   value: "switchTest1",
   checked: false,
   size: "small",
-  onChange: () => {},
+  onChange: action("checked"),
   margin: "s0",
   padding: "s0",
 };
