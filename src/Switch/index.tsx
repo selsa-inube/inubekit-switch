@@ -36,7 +36,7 @@ export const Switch = (props: ISwitchProps) => {
   return (
     <Stack
       direction={"row"}
-      justifyContent={label ? "space-between" : "flex-start"}
+      justifyContent={label ? "flex-start" : "flex-start"}
       alignItems="center"
       gap={label ? "10px" : "0px"}
       margin={margin}

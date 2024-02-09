@@ -104,7 +104,6 @@ const StyledInput = styled.input`
         ? "transform: translateX(16px);"
         : "transform: translateX(20px);"}
   }
-  }
 `;
 
 const StyledIcon = styled.div`
