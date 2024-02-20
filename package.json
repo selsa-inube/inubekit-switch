@@ -1,5 +1,5 @@
 {
-  "name": "@inubekit/switch",
+  "name": "@inubekit/toggle",
   "homepage": "https://inubeds.vercel.app/",
   "author": "inube",
   "main": "dist/index.es.js",
