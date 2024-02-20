@@ -1,3 +1,20 @@
+# v1.0.1 (Tue Feb 20 2024)
+
+#### 🐛 Bug Fix
+
+- publish `<Switch />` package npm [#2](https://github.com/selsa-inube/inubekit-toggle/pull/2) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### ⚠️ Pushed to `main`
+
+- fix(toggle): adjust package.json in order to rename switch by toggle ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v0.0.2 (Wed Feb 07 2024)
 
 #### 🐛 Bug Fix
