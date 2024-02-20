@@ -1,4 +1,4 @@
-# v1.0.1 (Tue Feb 20 2024)
+# v1.0.0 (Tue Feb 20 2024)
 
 #### 🐛 Bug Fix
 
@@ -19,7 +19,7 @@
 
 #### 🐛 Bug Fix
 
-- implementation of  `<Switch  />`  component [#1](https://github.com/selsa-inube/inubekit-switch/pull/1) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- implementation of `<Switch  />` component [#1](https://github.com/selsa-inube/inubekit-switch/pull/1) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 #### ⚠️ Pushed to `main`
 
@@ -29,7 +29,7 @@
 #### Authors: 2
 
 - Andres Babativa (carlos3k11@gmail.com)
-- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Januar Asprilla ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 ---
 
