@@ -15,54 +15,56 @@ const sizes = {
 
 const StyledSpan = styled.span`
   position: absolute;
-  top: ${inube.spacing.s0};
-  left: ${inube.spacing.s0};
-  right: ${inube.spacing.s0};
-  bottom: ${inube.spacing.s0};
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   transition: 0.1s;
   border-radius: 30px;
   cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
   background: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.color?.surface?.gray?.disabled ||
-        inube.color.surface.gray.disabled
-      : theme?.color?.surface?.gray?.regular ||
-        inube.color.surface.gray.regular};
+      ? theme?.toggle?.off?.background?.color?.disabled ||
+        inube.toggle.off.background.color.disabled
+      : theme?.toggle?.off?.background?.color?.regular ||
+        inube.toggle.off.background.color.regular};
 
   &:hover {
     background-color: ${({ $disabled, theme }) =>
       $disabled
-        ? theme?.color?.surface?.gray?.disabled ||
-          inube.color.surface.gray.disabled
-        : theme?.color?.surface?.gray?.hover || inube.color.surface.gray.hover};
+        ? theme?.toggle?.off?.background?.color?.disabled ||
+          inube.toggle.off.background.color.disabled
+        : theme?.toggle?.off?.background?.color?.hover ||
+          inube.toggle.off.background.color.hover};
   }
 
   &:before {
     position: absolute;
     content: "";
-    left: ${inube.spacing.s025};
+    left: 2px;
     border-radius: 50%;
     transition: 0.3s;
     background-color: ${({ theme }) =>
-      theme?.color?.surface?.light?.clear || inube.color.surface.light.clear};
+      theme?.toggle?.on?.toggleBackground?.color?.regular ||
+      inube.toggle.on.toggleBackground.color.regular};
     box-sizing: border-box;
     border: ${({ $disabled, theme }) =>
       $disabled &&
       `0.5px solid ${
-        theme?.color?.stroke?.light?.disabled ||
-        inube.color.stroke.gray.disabled
+        theme?.toggle?.on?.toggleBorder?.color?.disabled ||
+        inube.toggle.on.toggleBorder.color.disabled
       }`};
     ${({ $size }) =>
       $size === "small"
         ? css`
             width: 12px;
             height: 12px;
-            bottom: calc((${inube.spacing.s200} - ${inube.spacing.s150}) / 2);
+            bottom: calc((16px - 12px) / 2);
           `
         : css`
             width: 16px;
             height: 16px;
-            bottom: calc((${inube.spacing.s250} - ${inube.spacing.s200}) / 2);
+            bottom: calc((20px - 16px) / 2);
           `};
   }
 `;
@@ -81,60 +83,47 @@ const StyledInput = styled.input`
   &:checked + span {
     background-color: ${({ $disabled, theme }) =>
       $disabled
-        ? theme?.color?.surface?.gray?.disabled ||
-          inube.color.surface.gray.disabled
-        : theme?.color?.surface?.success?.regular ||
-          inube.color.surface.success.regular};
+        ? theme?.toggle?.on?.background?.color?.disabled ||
+          inube.toggle.on.background.color.disabled
+        : theme?.toggle?.on?.background?.color?.regular ||
+          inube.toggle.on.background.color.regular};
 
     &:hover {
       background-color: ${({ $disabled, theme }) =>
         $disabled
-          ? theme?.color?.surface?.gray?.disabled ||
-            inube.color.surface.gray.disabled
-          : theme?.color?.surface?.success?.hover ||
-            inube.color.surface.success.hover};
+          ? theme?.toggle?.on?.background?.color?.disabled ||
+            inube.toggle.on.background.color.disabled
+          : theme?.toggle?.on?.background?.color?.hover ||
+            inube.toggle.on.background.color.hover};
     }
   }
 
   &:checked + span:before {
-    left: ${({ $size }) =>
-      $size === "small" ? `-${inube.spacing.s025}` : `${inube.spacing.s025}`};
-    ${({ $size }) =>
-      $size === "small"
-        ? "transform: translateX(16px);"
-        : "transform: translateX(20px);"}
+    ${({ $disabled }) =>
+      !$disabled &&
+      css`
+        left: ${({ $size }) => ($size === "small" ? `-2px` : `2px`)};
+        transform: translateX(20px);
+      `}
   }
 `;
 
 const StyledIcon = styled.div`
-  & > #mdIcon {
-    position: absolute;
-    color: ${({ $disabled }) =>
-      !$disabled
-        ? inube.color.surface.light.regular
-        : inube.color.stroke.gray.disabled};
-    ${({ $size }) =>
-      $size === "small"
-        ? css`
-            width: 10px;
-            height: 10px;
-            padding-left ${inube.spacing.s025};
-            top: calc(${inube.spacing.s075} / 2);
-            left: ${(props) =>
-              props.checked
-                ? `calc(${inube.spacing.s075} / 2)`
-                : `${inube.spacing.s200}`};
-          `
-        : css`
-            width: 14px;
-            height: 14px;
-            top: calc(${inube.spacing.s075} / 2);
-            left: ${(props) =>
-              props.checked
-                ? `${inube.spacing.s050}`
-                : `${inube.spacing.s250}`};
-          `};
-  }
+  position: inherit;
+  top: calc(2px / 2);
+  padding-left: 2px;
+  ${({ $size, $checked, $disabled }) =>
+    $size === "small"
+      ? css`
+          width: 10px;
+          height: 10px;
+          left: ${$checked && !$disabled ? "-1px" : "15px"};
+        `
+      : css`
+          width: 14px;
+          height: 14px;
+          left: ${$checked && !$disabled ? "-1px" : "20px"};
+        `};
 `;
 
 export { StyledContainer, StyledInput, StyledSpan, StyledIcon };

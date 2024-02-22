@@ -1,7 +1,8 @@
 import { MdDone, MdClose } from "react-icons/md";
-
+import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
+import { Icon } from "@inubekit/icon";
 
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
@@ -29,9 +30,13 @@ export const Switch = (props: ISwitchProps) => {
     checked = false,
     onChange,
     label,
-    margin = "s0",
-    padding = "s0",
+    margin = "0px",
+    padding = "0px",
   } = props;
+
+  const appearance = disabled
+    ? inube.toggle.off.icon.appereance
+    : inube.toggle.on.icon.appereance;
 
   return (
     <Stack
@@ -50,17 +55,25 @@ export const Switch = (props: ISwitchProps) => {
           value={value}
           checked={checked}
           onChange={onChange}
-          disabled={disabled}
+          $disabled={disabled}
           name={name}
         />
         <StyledSpan $size={size} $disabled={disabled} $checked={checked}>
-          {checked ? (
-            <StyledIcon $checked={checked} $size={size} $disabled={disabled}>
-              <MdDone id="mdIcon" />
+          {checked && !disabled ? (
+            <StyledIcon $size={size} $checked={true} $disabled={disabled}>
+              <Icon
+                size={size === "small" ? "10px" : "14px"}
+                appearance={appearance}
+                icon={<MdDone />}
+              />
             </StyledIcon>
           ) : (
-            <StyledIcon $checked={checked} $size={size} $disabled={disabled}>
-              <MdClose id="mdIcon" />
+            <StyledIcon $size={size} $checked={false} $disabled={disabled}>
+              <Icon
+                size={size === "small" ? "10px" : "14px"}
+                appearance={appearance}
+                icon={<MdClose />}
+              />
             </StyledIcon>
           )}
         </StyledSpan>

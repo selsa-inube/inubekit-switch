@@ -1,8 +1,5 @@
 import { Switch, ISwitchProps } from "..";
 import { SwitchController } from "./SwitchController";
-import { ThemeProvider } from "styled-components";
-
-import { presente } from "@inubekit/foundations";
 import { props, parameters } from "../props";
 
 import { action } from "@storybook/addon-actions";
@@ -31,20 +28,6 @@ Default.args = {
   margin: "s0",
   padding: "s0",
   label: "",
-};
-
-const theme = {
-  ...presente,
-};
-
-export const Themed = (args: ISwitchProps) => (
-  <ThemeProvider theme={theme}>
-    <SwitchController {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
 };
 
 export default story;
