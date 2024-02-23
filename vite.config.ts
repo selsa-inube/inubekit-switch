@@ -17,7 +17,6 @@ export default defineConfig({
         "react-dom",
         "react-icons",
         "styled-components",
-        "styled-components",
         "@inubekit/foundations",
         "@inubekit/label",
         "@inubekit/stack",
