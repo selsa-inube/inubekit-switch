@@ -7,7 +7,7 @@ import { Icon } from "@inubekit/icon";
 import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
-export interface ISwitchProps {
+interface IToggleProps {
   id: string;
   name?: string;
   value?: string;
@@ -20,7 +20,7 @@ export interface ISwitchProps {
   disabled?: boolean;
 }
 
-export const Switch = (props: ISwitchProps) => {
+const Toggle = (props: IToggleProps) => {
   const {
     disabled = false,
     id,
@@ -86,3 +86,6 @@ export const Switch = (props: ISwitchProps) => {
     </Stack>
   );
 };
+
+export { Toggle };
+export type { IToggleProps };

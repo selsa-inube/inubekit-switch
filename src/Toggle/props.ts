@@ -1,5 +1,5 @@
 export const sizes = ["small", "large"] as const;
-export type Size = typeof sizes[number];
+export type Size = (typeof sizes)[number];
 
 const parameters = {
   docs: {
@@ -67,7 +67,7 @@ const props = {
     description:
       "Sets the margin in px or global values for all four sides of the component. Accepted values are the spacing tokens",
     table: {
-      defaultValue: { summary: "s0" },
+      defaultValue: { summary: "0px" },
     },
   },
   padding: {
@@ -75,7 +75,7 @@ const props = {
     description:
       "Sets the padding in px p global values for all four sides of the component. Accepted values are the spacing tokens",
     table: {
-      defaultValue: { summary: "s0" },
+      defaultValue: { summary: "0px" },
     },
   },
 };

@@ -1,12 +1,12 @@
-import { Switch, ISwitchProps } from "..";
-import { SwitchController } from "./SwitchController";
+import { Toggle, IToggleProps } from "..";
+import { ToggleController } from "./ToggleController";
 import { props, parameters } from "../props";
 
 import { action } from "@storybook/addon-actions";
 
 const story = {
-  title: "inputs/Switch",
-  components: [Switch],
+  title: "inputs/Toggle",
+  components: [Toggle],
   parameters,
   argTypes: {
     ...props,
@@ -14,8 +14,8 @@ const story = {
   },
 };
 
-export const Default = (args: ISwitchProps) => (
-  <SwitchController {...args} onSwitchChange={args.onChange} />
+export const Default = (args: IToggleProps) => (
+  <ToggleController {...args} onToggleChange={args.onChange} />
 );
 Default.args = {
   id: "id",
@@ -25,8 +25,8 @@ Default.args = {
   checked: false,
   size: "small",
   onChange: action("checked"),
-  margin: "s0",
-  padding: "s0",
+  margin: "0px",
+  padding: "0px",
   label: "",
 };
 

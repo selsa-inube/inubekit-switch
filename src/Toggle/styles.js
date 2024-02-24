@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { inube } from "@inubekit/foundations";
 
@@ -54,18 +54,11 @@ const StyledSpan = styled.span`
         theme?.toggle?.on?.toggleBorder?.color?.disabled ||
         inube.toggle.on.toggleBorder.color.disabled
       }`};
-    ${({ $size }) =>
-      $size === "small"
-        ? css`
-            width: 12px;
-            height: 12px;
-            bottom: calc((16px - 12px) / 2);
-          `
-        : css`
-            width: 16px;
-            height: 16px;
-            bottom: calc((20px - 16px) / 2);
-          `};
+    ${({ $size }) => `
+      width: ${$size === "small" ? "12px" : "16px"};
+      height: ${$size === "small" ? "12px" : "16px"};
+      bottom: calc((${$size === "small" ? "16px" : "20px"} - ${$size === "small" ? "12px" : "16px"}) / 2);
+    `};
   }
 `;
 
@@ -99,12 +92,12 @@ const StyledInput = styled.input`
   }
 
   &:checked + span:before {
-    ${({ $disabled }) =>
+    ${({ $disabled, $size }) =>
       !$disabled &&
-      css`
-        left: ${({ $size }) => ($size === "small" ? `-2px` : `2px`)};
-        transform: translateX(20px);
-      `}
+      `
+    left: ${$size === "small" ? `-2px` : `2px`};
+    transform: translateX(20px);
+  `}
   }
 `;
 
@@ -112,18 +105,11 @@ const StyledIcon = styled.div`
   position: inherit;
   top: calc(2px / 2);
   padding-left: 2px;
-  ${({ $size, $checked, $disabled }) =>
-    $size === "small"
-      ? css`
-          width: 10px;
-          height: 10px;
-          left: ${$checked && !$disabled ? "-1px" : "15px"};
-        `
-      : css`
-          width: 14px;
-          height: 14px;
-          left: ${$checked && !$disabled ? "-1px" : "20px"};
-        `};
+  ${({ $size, $checked, $disabled }) => `
+  width: ${$size === "small" ? "10px" : "14px"};
+  height: ${$size === "small" ? "10px" : "14px"};
+  left: ${$checked && !$disabled ? "-1px" : "15px"};
+`};
 `;
 
 export { StyledContainer, StyledInput, StyledSpan, StyledIcon };
