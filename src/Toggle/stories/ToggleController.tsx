@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Toggle, IToggleProps } from "..";
+import { Toggle, IToggle } from "..";
 
 const ToggleController = (
-  props: IToggleProps & {
+  props: IToggle & {
     onToggleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   },
 ) => {

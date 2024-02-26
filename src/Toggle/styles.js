@@ -2,17 +2,6 @@ import styled from "styled-components";
 
 import { inube } from "@inubekit/foundations";
 
-const sizes = {
-  large: {
-    width: "40px",
-    height: "20px",
-  },
-  small: {
-    width: "32px",
-    height: "16px",
-  },
-};
-
 const StyledSpan = styled.span`
   position: absolute;
   top: 0;
@@ -48,24 +37,27 @@ const StyledSpan = styled.span`
       theme?.toggle?.on?.toggleBackground?.color?.regular ||
       inube.toggle.on.toggleBackground.color.regular};
     box-sizing: border-box;
-    border: ${({ $disabled, theme }) =>
-      $disabled &&
-      `0.5px solid ${
-        theme?.toggle?.on?.toggleBorder?.color?.disabled ||
-        inube.toggle.on.toggleBorder.color.disabled
-      }`};
-    ${({ $size }) => `
-      width: ${$size === "small" ? "12px" : "16px"};
-      height: ${$size === "small" ? "12px" : "16px"};
-      bottom: calc((${$size === "small" ? "16px" : "20px"} - ${$size === "small" ? "12px" : "16px"}) / 2);
-    `};
+    border: 0.5px solid
+      ${({ $checked, $disabled, theme }) =>
+        $checked && !$disabled
+          ? theme?.toggle?.on?.toggleBorder?.color?.regular ||
+            inube.toggle.on.toggleBorder.color.regular
+          : theme?.toggle?.off?.toggleBorder?.color?.regular ||
+            inube.toggle.off.toggleBorder.color.regular};
+    width: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
+    height: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
+    bottom: ${({ $size }) =>
+      $size === "small"
+        ? "calc((16px - 12px) / 2)"
+        : "calc((20px - 16px) / 2)"};
   }
 `;
 
-const StyledContainer = styled.label`
+const StyledLabel = styled.label`
   position: relative;
   display: inline-block;
-  ${({ $size }) => $size && sizes[$size]};
+  width: ${({ $size }) => ($size === "small" ? "32px" : "40px")};
+  height: ${({ $size }) => ($size === "small" ? "16px" : "20px")};
 `;
 
 const StyledInput = styled.input`
@@ -92,12 +84,9 @@ const StyledInput = styled.input`
   }
 
   &:checked + span:before {
-    ${({ $disabled, $size }) =>
-      !$disabled &&
-      `
-    left: ${$size === "small" ? `-2px` : `2px`};
-    transform: translateX(20px);
-  `}
+    left: ${({ $disabled, $size }) =>
+      $size === "small" && !$disabled ? `-2px` : `2px`};
+    transform: ${({ $disabled }) => !$disabled && " translateX(20px)"};
   }
 `;
 
@@ -105,11 +94,16 @@ const StyledIcon = styled.div`
   position: inherit;
   top: calc(2px / 2);
   padding-left: 2px;
-  ${({ $size, $checked, $disabled }) => `
-  width: ${$size === "small" ? "10px" : "14px"};
-  height: ${$size === "small" ? "10px" : "14px"};
-  left: ${$checked && !$disabled ? "-1px" : "15px"};
-`};
+  width: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
+  height: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
+  left: ${({ $size, $checked, $disabled }) => {
+    if ($checked && !$disabled) {
+      return "-1px";
+    } else {
+      return $size === "small" ? "15px" : "18px";
+    }
+  }};
+};
 `;
 
-export { StyledContainer, StyledInput, StyledSpan, StyledIcon };
+export { StyledLabel, StyledInput, StyledSpan, StyledIcon };

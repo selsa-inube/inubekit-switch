@@ -1,4 +1,4 @@
-import { Toggle, IToggleProps } from "..";
+import { Toggle, IToggle } from "..";
 import { ToggleController } from "./ToggleController";
 import { props, parameters } from "../props";
 
@@ -14,7 +14,7 @@ const story = {
   },
 };
 
-export const Default = (args: IToggleProps) => (
+export const Default = (args: IToggle) => (
   <ToggleController {...args} onToggleChange={args.onChange} />
 );
 Default.args = {

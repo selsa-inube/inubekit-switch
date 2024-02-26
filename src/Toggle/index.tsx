@@ -4,10 +4,10 @@ import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 
-import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
+import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
-interface IToggleProps {
+interface IToggle {
   id: string;
   name?: string;
   value?: string;
@@ -20,7 +20,7 @@ interface IToggleProps {
   disabled?: boolean;
 }
 
-const Toggle = (props: IToggleProps) => {
+const Toggle = (props: IToggle) => {
   const {
     disabled = false,
     id,
@@ -34,10 +34,6 @@ const Toggle = (props: IToggleProps) => {
     padding = "0px",
   } = props;
 
-  const appearance = disabled
-    ? inube.toggle.off.icon.appereance
-    : inube.toggle.on.icon.appereance;
-
   return (
     <Stack
       direction={"row"}
@@ -47,7 +43,7 @@ const Toggle = (props: IToggleProps) => {
       margin={margin}
       padding={padding}
     >
-      <StyledContainer $size={size}>
+      <StyledLabel $size={size}>
         <StyledInput
           id={id}
           type="checkbox"
@@ -63,7 +59,8 @@ const Toggle = (props: IToggleProps) => {
             <StyledIcon $size={size} $checked={true} $disabled={disabled}>
               <Icon
                 size={size === "small" ? "10px" : "14px"}
-                appearance={appearance}
+                appearance={inube.toggle.on.icon.appereance}
+                disabled={disabled}
                 icon={<MdDone />}
               />
             </StyledIcon>
@@ -71,13 +68,14 @@ const Toggle = (props: IToggleProps) => {
             <StyledIcon $size={size} $checked={false} $disabled={disabled}>
               <Icon
                 size={size === "small" ? "10px" : "14px"}
-                appearance={appearance}
+                appearance={inube.toggle.off.icon.appereance}
+                disabled={disabled}
                 icon={<MdClose />}
               />
             </StyledIcon>
           )}
         </StyledSpan>
-      </StyledContainer>
+      </StyledLabel>
       {label && (
         <Label htmlFor={id} disabled={disabled}>
           {label}
@@ -88,4 +86,4 @@ const Toggle = (props: IToggleProps) => {
 };
 
 export { Toggle };
-export type { IToggleProps };
+export type { IToggle };
