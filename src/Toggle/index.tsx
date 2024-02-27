@@ -50,7 +50,7 @@ const Toggle = (props: IToggle) => {
           $size={size}
           value={value}
           checked={checked}
-          onChange={onChange}
+          onChange={!disabled ? onChange : () => null}
           $disabled={disabled}
           name={name}
         />
@@ -59,12 +59,12 @@ const Toggle = (props: IToggle) => {
             <Icon
               size={size === "small" ? "10px" : "14px"}
               appearance={
-                checked && !disabled
+                checked
                   ? inube.toggle.on.icon.appereance
                   : inube.toggle.off.icon.appereance
               }
               disabled={disabled}
-              icon={checked && !disabled ? <MdDone /> : <MdClose />}
+              icon={checked ? <MdDone /> : <MdClose />}
             />
           </StyledIcon>
         </StyledSpan>

@@ -42,8 +42,8 @@ const StyledSpan = styled.span`
         $checked && !$disabled
           ? theme?.toggle?.on?.toggleBorder?.color?.regular ||
             inube.toggle.on.toggleBorder.color.regular
-          : theme?.toggle?.on?.toggleBorder?.color?.regular ||
-            inube.toggle.on.toggleBorder.color.regular};
+          : theme?.toggle?.off?.toggleBorder?.color?.regular ||
+            inube.toggle.off.toggleBorder.color.regular};
     width: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
     height: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
     bottom: ${({ $size }) =>
@@ -86,7 +86,8 @@ const StyledInput = styled.input`
   &:checked + span:before {
     left: ${({ $disabled, $size }) =>
       $size === "small" && !$disabled ? `-2px` : `2px`};
-    transform: ${({ $disabled }) => !$disabled && " translateX(20px)"};
+    transform: ${({ $disabled }) =>
+      !$disabled ? "translateX(20px)" : "translateX(16px)"};
   }
 `;
 
@@ -97,7 +98,7 @@ const StyledIcon = styled.div`
   width: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
   height: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
   left: ${({ $size, $checked, $disabled }) => {
-    if ($checked && !$disabled) {
+    if ($checked) {
       return "-1px";
     } else {
       return $size === "small" ? "14px" : "18px";
