@@ -42,8 +42,8 @@ const StyledSpan = styled.span`
         $checked && !$disabled
           ? theme?.toggle?.on?.toggleBorder?.color?.regular ||
             inube.toggle.on.toggleBorder.color.regular
-          : theme?.toggle?.off?.toggleBorder?.color?.regular ||
-            inube.toggle.off.toggleBorder.color.regular};
+          : theme?.toggle?.on?.toggleBorder?.color?.regular ||
+            inube.toggle.on.toggleBorder.color.regular};
     width: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
     height: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
     bottom: ${({ $size }) =>
@@ -100,10 +100,9 @@ const StyledIcon = styled.div`
     if ($checked && !$disabled) {
       return "-1px";
     } else {
-      return $size === "small" ? "15px" : "18px";
+      return $size === "small" ? "14px" : "18px";
     }
   }};
-};
 `;
 
 export { StyledLabel, StyledInput, StyledSpan, StyledIcon };

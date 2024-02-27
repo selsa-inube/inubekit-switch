@@ -15,7 +15,8 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
-        "react-icons",
+        "react-icons/md",
+        "react/jsx-runtime",
         "styled-components",
         "@inubekit/foundations",
         "@inubekit/label",

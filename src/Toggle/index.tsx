@@ -55,25 +55,18 @@ const Toggle = (props: IToggle) => {
           name={name}
         />
         <StyledSpan $size={size} $disabled={disabled} $checked={checked}>
-          {checked && !disabled ? (
-            <StyledIcon $size={size} $checked={true} $disabled={disabled}>
-              <Icon
-                size={size === "small" ? "10px" : "14px"}
-                appearance={inube.toggle.on.icon.appereance}
-                disabled={disabled}
-                icon={<MdDone />}
-              />
-            </StyledIcon>
-          ) : (
-            <StyledIcon $size={size} $checked={false} $disabled={disabled}>
-              <Icon
-                size={size === "small" ? "10px" : "14px"}
-                appearance={inube.toggle.off.icon.appereance}
-                disabled={disabled}
-                icon={<MdClose />}
-              />
-            </StyledIcon>
-          )}
+          <StyledIcon $size={size} $checked={checked} $disabled={disabled}>
+            <Icon
+              size={size === "small" ? "10px" : "14px"}
+              appearance={
+                checked && !disabled
+                  ? inube.toggle.on.icon.appereance
+                  : inube.toggle.off.icon.appereance
+              }
+              disabled={disabled}
+              icon={checked && !disabled ? <MdDone /> : <MdClose />}
+            />
+          </StyledIcon>
         </StyledSpan>
       </StyledLabel>
       {label && (
