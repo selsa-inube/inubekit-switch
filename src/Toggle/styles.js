@@ -86,8 +86,8 @@ const StyledInput = styled.input`
   &:checked + span:before {
     left: ${({ $disabled, $size }) =>
       $size === "small" && !$disabled ? `-2px` : `2px`};
-    transform: ${({ $disabled }) =>
-      !$disabled ? "translateX(20px)" : "translateX(16px)"};
+    transform: ${({ $disabled, $size }) =>
+      $disabled && $size === "small" ? "translateX(16px)" : "translateX(20px)"};
   }
 `;
 
