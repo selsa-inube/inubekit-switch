@@ -1,12 +1,13 @@
 import { MdDone, MdClose } from "react-icons/md";
-
+import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
+import { Icon } from "@inubekit/icon";
 
-import { StyledContainer, StyledInput, StyledSpan, StyledIcon } from "./styles";
+import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { Size } from "./props";
 
-export interface ISwitchProps {
+interface IToggle {
   id: string;
   name?: string;
   value?: string;
@@ -19,7 +20,7 @@ export interface ISwitchProps {
   disabled?: boolean;
 }
 
-export const Switch = (props: ISwitchProps) => {
+const Toggle = (props: IToggle) => {
   const {
     disabled = false,
     id,
@@ -29,8 +30,8 @@ export const Switch = (props: ISwitchProps) => {
     checked = false,
     onChange,
     label,
-    margin = "s0",
-    padding = "s0",
+    margin = "0px",
+    padding = "0px",
   } = props;
 
   return (
@@ -42,29 +43,32 @@ export const Switch = (props: ISwitchProps) => {
       margin={margin}
       padding={padding}
     >
-      <StyledContainer $size={size}>
+      <StyledLabel $size={size}>
         <StyledInput
           id={id}
           type="checkbox"
           $size={size}
           value={value}
           checked={checked}
-          onChange={onChange}
-          disabled={disabled}
+          onChange={!disabled ? onChange : () => null}
+          $disabled={disabled}
           name={name}
         />
         <StyledSpan $size={size} $disabled={disabled} $checked={checked}>
-          {checked ? (
-            <StyledIcon $checked={checked} $size={size} $disabled={disabled}>
-              <MdDone id="mdIcon" />
-            </StyledIcon>
-          ) : (
-            <StyledIcon $checked={checked} $size={size} $disabled={disabled}>
-              <MdClose id="mdIcon" />
-            </StyledIcon>
-          )}
+          <StyledIcon $size={size} $checked={checked} $disabled={disabled}>
+            <Icon
+              size={size === "small" ? "10px" : "14px"}
+              appearance={
+                checked
+                  ? inube.toggle.on.icon.appereance
+                  : inube.toggle.off.icon.appereance
+              }
+              disabled={disabled}
+              icon={checked ? <MdDone /> : <MdClose />}
+            />
+          </StyledIcon>
         </StyledSpan>
-      </StyledContainer>
+      </StyledLabel>
       {label && (
         <Label htmlFor={id} disabled={disabled}>
           {label}
@@ -73,3 +77,6 @@ export const Switch = (props: ISwitchProps) => {
     </Stack>
   );
 };
+
+export { Toggle };
+export type { IToggle };
