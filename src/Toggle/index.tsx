@@ -34,6 +34,18 @@ const Toggle = (props: IToggle) => {
     padding = "0px",
   } = props;
 
+  const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      onChange && onChange(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
   return (
     <Stack
       direction={"row"}
@@ -50,7 +62,7 @@ const Toggle = (props: IToggle) => {
           $size={size}
           value={value}
           checked={checked}
-          onChange={!disabled ? onChange : () => null}
+          onChange={!disabled ? interceptChange : () => null}
           $disabled={disabled}
           name={name}
         />

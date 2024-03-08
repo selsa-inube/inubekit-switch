@@ -14,7 +14,7 @@ const story = {
   },
 };
 
-export const Default = (args: IToggle) => (
+const Default = (args: IToggle) => (
   <ToggleController {...args} onToggleChange={args.onChange} />
 );
 Default.args = {
@@ -29,5 +29,5 @@ Default.args = {
   padding: "0px",
   label: "",
 };
-
+export { Default };
 export default story;
