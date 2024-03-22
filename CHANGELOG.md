@@ -1,3 +1,24 @@
+# v1.2.0 (Fri Mar 22 2024)
+
+#### 🚀 Enhancement
+
+- Adjust and export interfaces [#8](https://github.com/selsa-inube/inubekit-toggle/pull/8) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+#### 📝 Documentation
+
+- Publish new version 1.1.0 [#6](https://github.com/selsa-inube/inubekit-toggle/pull/6) ([@cmarin001](https://github.com/cmarin001))
+
+#### 🔩 Dependency Updates
+
+- Update inubekit/toggle to storybook v8 [#7](https://github.com/selsa-inube/inubekit-toggle/pull/7) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v1.1.0 (Mon Mar 11 2024)
 
 #### 🚀 Enhancement

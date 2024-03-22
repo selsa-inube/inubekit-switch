@@ -72,8 +72,9 @@ const Toggle = (props: IToggle) => {
               size={size === "small" ? "10px" : "14px"}
               appearance={
                 checked
-                  ? inube.toggle.on.icon.appereance
-                  : inube.toggle.off.icon.appereance
+                  ? (inube.toggle.on.icon.appereance as keyof typeof inube.icon)
+                  : (inube.toggle.off.icon
+                      .appereance as keyof typeof inube.icon)
               }
               disabled={disabled}
               icon={checked ? <MdDone /> : <MdClose />}
