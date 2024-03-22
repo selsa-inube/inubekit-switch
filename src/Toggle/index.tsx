@@ -5,13 +5,13 @@ import { Label } from "@inubekit/label";
 import { Icon } from "@inubekit/icon";
 
 import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
-import { Size } from "./props";
+import { IToggleSize } from "./props";
 
 interface IToggle {
   id: string;
   name?: string;
   value?: string;
-  size?: Size;
+  size?: IToggleSize;
   checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
