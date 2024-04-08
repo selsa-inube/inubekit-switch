@@ -2,10 +2,12 @@ import { MdDone, MdClose } from "react-icons/md";
 import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
-import { Icon } from "@inubekit/icon";
+import { IIconAppearance, Icon } from "@inubekit/icon";
 
 import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { IToggleSize } from "./props";
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 interface IToggle {
   id: string;
@@ -34,6 +36,13 @@ const Toggle = (props: IToggle) => {
     padding = "0px",
   } = props;
 
+  const theme: typeof inube = useContext(ThemeContext);
+  const onIconAppearance: IIconAppearance =
+    (theme?.toggle?.on?.icon?.appereance as keyof typeof inube.icon) ||
+    inube.toggle.on.icon.appereance;
+  const offIconAppearance: IIconAppearance =
+    (theme?.toggle?.off?.icon?.appereance as keyof typeof inube.icon) ||
+    inube.toggle.off.icon.appereance;
   const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       onChange && onChange(e);
@@ -48,7 +57,7 @@ const Toggle = (props: IToggle) => {
 
   return (
     <Stack
-      direction={"row"}
+      direction="row"
       justifyContent={label ? "flex-start" : "flex-start"}
       alignItems="center"
       gap={label ? "10px" : "0px"}
@@ -70,12 +79,7 @@ const Toggle = (props: IToggle) => {
           <StyledIcon $size={size} $checked={checked} $disabled={disabled}>
             <Icon
               size={size === "small" ? "10px" : "14px"}
-              appearance={
-                checked
-                  ? (inube.toggle.on.icon.appereance as keyof typeof inube.icon)
-                  : (inube.toggle.off.icon
-                      .appereance as keyof typeof inube.icon)
-              }
+              appearance={checked ? onIconAppearance : offIconAppearance}
               disabled={disabled}
               icon={checked ? <MdDone /> : <MdClose />}
             />
