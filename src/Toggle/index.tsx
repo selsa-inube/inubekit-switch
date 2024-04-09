@@ -37,12 +37,12 @@ const Toggle = (props: IToggle) => {
   } = props;
 
   const theme: typeof inube = useContext(ThemeContext);
-  const onIconAppearance: IIconAppearance =
-    (theme?.toggle?.on?.icon?.appereance as keyof typeof inube.icon) ||
-    inube.toggle.on.icon.appereance;
-  const offIconAppearance: IIconAppearance =
-    (theme?.toggle?.off?.icon?.appereance as keyof typeof inube.icon) ||
-    inube.toggle.off.icon.appereance;
+  const onIconAppearance = (theme?.toggle?.on?.icon?.appereance ||
+    inube.toggle.on.icon.appereance) as IIconAppearance;
+
+  const offIconAppearance = (theme?.toggle?.off?.icon?.appereance ||
+    inube.toggle.off.icon.appereance) as IIconAppearance;
+
   const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       onChange && onChange(e);
