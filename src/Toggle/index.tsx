@@ -58,7 +58,7 @@ const Toggle = (props: IToggle) => {
   return (
     <Stack
       direction="row"
-      justifyContent={label ? "flex-start" : "flex-start"}
+      justifyContent="flex-start"
       alignItems="center"
       gap={label ? "10px" : "0px"}
       margin={margin}
