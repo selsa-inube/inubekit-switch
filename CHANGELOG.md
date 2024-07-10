@@ -1,3 +1,15 @@
+# v2.6.0 (Wed Jul 10 2024)
+
+#### 🚀 Enhancement
+
+- Update foundations dependencies [#17](https://github.com/selsa-inube/inubekit-toggle/pull/17) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.5.0 (Tue Jul 09 2024)
 
 #### 🚀 Enhancement
