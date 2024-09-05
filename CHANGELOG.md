@@ -1,3 +1,15 @@
+# v3.0.0 (Thu Sep 05 2024)
+
+#### 💥 Breaking Change
+
+- Enhance `<Toggle/>` Component to Support Custom Content with children Prop [#46](https://github.com/selsa-inube/inubekit-toggle/pull/46) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.30.0 (Wed Sep 04 2024)
 
 #### 🚀 Enhancement
