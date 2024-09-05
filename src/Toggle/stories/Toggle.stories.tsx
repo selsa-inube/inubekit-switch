@@ -27,7 +27,7 @@ Default.args = {
   onChange: action("checked"),
   margin: "0px",
   padding: "0px",
-  label: "",
+  children: "",
 };
 export { Default };
 export default story;

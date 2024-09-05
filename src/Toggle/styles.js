@@ -93,8 +93,8 @@ const StyledInput = styled.input`
 
 const StyledIcon = styled.div`
   position: inherit;
-  top: calc(2px / 2);
-  padding-left: 2px;
+  top: calc(-2px / 2);
+  padding-left: 4px;
   width: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
   height: ${({ $size }) => ($size === "small" ? "10px" : "14px")};
   left: ${({ $size, $checked, $disabled }) => {
