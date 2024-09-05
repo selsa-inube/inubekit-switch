@@ -3,46 +3,42 @@ import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
 import { IIconAppearance, Icon } from "@inubekit/icon";
-
 import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
 import { IToggleSize } from "./props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 
 interface IToggle {
-  id: string;
+  id?: string;
   name?: string;
   value?: string;
   size?: IToggleSize;
   checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  label: string;
-  margin: string;
-  padding: string;
+  children?: React.ReactNode;
+  margin?: string;
+  padding?: string;
   disabled?: boolean;
 }
 
 const Toggle = (props: IToggle) => {
   const {
     disabled = false,
-    id,
+    id = "toggle",
     name,
     value,
     size = "small",
     checked = false,
     onChange,
-    label,
+    children,
     margin = "0px",
     padding = "0px",
   } = props;
-
   const theme: typeof inube = useContext(ThemeContext);
   const onIconAppearance = (theme?.toggle?.on?.icon?.appereance ||
     inube.toggle.on.icon.appereance) as IIconAppearance;
-
   const offIconAppearance = (theme?.toggle?.off?.icon?.appereance ||
     inube.toggle.off.icon.appereance) as IIconAppearance;
-
   const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       onChange && onChange(e);
@@ -60,7 +56,7 @@ const Toggle = (props: IToggle) => {
       direction="row"
       justifyContent="flex-start"
       alignItems="center"
-      gap={label ? "10px" : "0px"}
+      gap={children ? "10px" : "0px"}
       margin={margin}
       padding={padding}
     >
@@ -86,14 +82,13 @@ const Toggle = (props: IToggle) => {
           </StyledIcon>
         </StyledSpan>
       </StyledLabel>
-      {label && (
+      {children && (
         <Label htmlFor={id} disabled={disabled}>
-          {label}
+          {children}
         </Label>
       )}
     </Stack>
   );
 };
-
 export { Toggle };
 export type { IToggle };
