@@ -9,12 +9,12 @@ const ToggleController = (
   const { checked = false, onToggleChange } = props;
   const [toggleChecked, setToggleChecked] = useState(checked);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setToggleChecked(e.target.checked);
     onToggleChange && onToggleChange(e);
   };
 
-  return <Toggle {...props} checked={toggleChecked} onChange={onChange} />;
+  return <Toggle {...props} checked={toggleChecked} onChange={handleChange} />;
 };
 
 export { ToggleController };

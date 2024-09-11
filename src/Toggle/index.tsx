@@ -3,7 +3,12 @@ import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
 import { IIconAppearance, Icon } from "@inubekit/icon";
-import { StyledLabel, StyledInput, StyledSpan, StyledIcon } from "./styles";
+import {
+  StyledContainer,
+  StyledInput,
+  StyledToggle,
+  StyledIcon,
+} from "./styles";
 import { IToggleSize } from "./props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
@@ -27,40 +32,31 @@ const Toggle = (props: IToggle) => {
     id = "toggle",
     name,
     value,
-    size = "small",
+    size = "large",
     checked = false,
     onChange,
     children,
     margin = "0px",
     padding = "0px",
   } = props;
+
   const theme: typeof inube = useContext(ThemeContext);
   const onIconAppearance = (theme?.toggle?.on?.icon?.appereance ||
     inube.toggle.on.icon.appereance) as IIconAppearance;
   const offIconAppearance = (theme?.toggle?.off?.icon?.appereance ||
     inube.toggle.off.icon.appereance) as IIconAppearance;
+
   const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       onChange && onChange(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(`Error when changing toggle value. ${error}`);
     }
   };
 
   return (
-    <Stack
-      direction="row"
-      justifyContent="flex-start"
-      alignItems="center"
-      gap={children ? "10px" : "0px"}
-      margin={margin}
-      padding={padding}
-    >
-      <StyledLabel $size={size}>
+    <Stack alignItems="center" gap="8px" margin={margin} padding={padding}>
+      <StyledContainer $size={size} $checked={checked} $disabled={disabled}>
         <StyledInput
           id={id}
           type="checkbox"
@@ -71,19 +67,22 @@ const Toggle = (props: IToggle) => {
           $disabled={disabled}
           name={name}
         />
-        <StyledSpan $size={size} $disabled={disabled} $checked={checked}>
-          <StyledIcon $size={size} $checked={checked} $disabled={disabled}>
-            <Icon
-              size={size === "small" ? "10px" : "14px"}
-              appearance={checked ? onIconAppearance : offIconAppearance}
-              disabled={disabled}
-              icon={checked ? <MdDone /> : <MdClose />}
-            />
-          </StyledIcon>
-        </StyledSpan>
-      </StyledLabel>
+        <StyledToggle $size={size} $checked={checked} $disabled={disabled} />
+        <StyledIcon $size={size} $checked={checked} $disabled={disabled}>
+          <Icon
+            size={size === "small" ? "10px" : "14px"}
+            appearance={checked ? onIconAppearance : offIconAppearance}
+            disabled={disabled}
+            icon={checked ? <MdDone /> : <MdClose />}
+          />
+        </StyledIcon>
+      </StyledContainer>
       {children && (
-        <Label htmlFor={id} disabled={disabled}>
+        <Label
+          htmlFor={id}
+          disabled={disabled}
+          size={size === "small" ? "medium" : "large"}
+        >
           {children}
         </Label>
       )}

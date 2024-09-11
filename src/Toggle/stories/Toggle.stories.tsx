@@ -6,7 +6,7 @@ import { action } from "@storybook/addon-actions";
 
 const story = {
   title: "inputs/Toggle",
-  components: [Toggle],
+  component: Toggle,
   parameters,
   argTypes: {
     ...props,
@@ -14,20 +14,18 @@ const story = {
   },
 };
 
-const Default = (args: IToggle) => (
-  <ToggleController {...args} onToggleChange={args.onChange} />
-);
+const Default = (args: IToggle) => <ToggleController {...args} />;
 Default.args = {
   id: "id",
-  disabled: false,
+  disabled: true,
   name: "name",
-  value: "switchTest1",
-  checked: false,
-  size: "small",
+  value: "value",
+  checked: true,
+  size: "large",
   onChange: action("checked"),
   margin: "0px",
   padding: "0px",
-  children: "",
+  children: "Label",
 };
 export { Default };
 export default story;
