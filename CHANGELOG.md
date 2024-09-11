@@ -1,3 +1,15 @@
+# v3.1.0 (Wed Sep 11 2024)
+
+#### 🚀 Enhancement
+
+- refactor: toggle and icon structure and positioning [#47](https://github.com/selsa-inube/inubekit-toggle/pull/47) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 1
+
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v3.0.0 (Thu Sep 05 2024)
 
 #### 💥 Breaking Change
