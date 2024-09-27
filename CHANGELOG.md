@@ -1,3 +1,15 @@
+# v3.3.0 (Fri Sep 27 2024)
+
+#### 🚀 Enhancement
+
+- Move toggle tokens from foundations to component [#49](https://github.com/selsa-inube/inubekit-toggle/pull/49) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.2.0 (Wed Sep 25 2024)
 
 #### 🚀 Enhancement
