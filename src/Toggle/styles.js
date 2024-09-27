@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import { inube } from "@inubekit/foundations";
+import { tokens } from "./Tokens/tokens";
 
 function translateX({ $checked, $size }) {
   const margin = 2;
@@ -40,7 +39,7 @@ const StyledToggle = styled.div`
     height: ${({ $size }) => ($size === "small" ? "12px" : "16px")};
     background-color: ${({ theme }) =>
       theme?.toggle?.on?.toggleBackground?.color?.regular ||
-      inube.toggle.on.toggleBackground.color.regular};
+      tokens.on.toggleBackground.color.regular};
     border-width: 1px;
     border-style: solid;
     border-color: ${({ $checked, $disabled, theme }) => {
@@ -48,24 +47,24 @@ const StyledToggle = styled.div`
         if ($disabled) {
           return (
             theme?.toggle?.on?.toggleBorder?.color?.disabled ||
-            inube.toggle.on.toggleBorder.color.disabled
+            tokens.on.toggleBorder.color.disabled
           );
         } else {
           return (
             theme?.toggle?.on?.toggleBorder?.color?.regular ||
-            inube.toggle.on.toggleBorder.color.regular
+            tokens.on.toggleBorder.color.regular
           );
         }
       } else {
         if ($disabled) {
           return (
             theme?.toggle?.off?.toggleBorder?.color?.disabled ||
-            inube.toggle.off.toggleBorder.color.disabled
+            tokens.off.toggleBorder.color.disabled
           );
         } else {
           return (
             theme?.toggle?.off?.toggleBorder?.color?.regular ||
-            inube.toggle.off.toggleBorder.color.regular
+            tokens.off.toggleBorder.color.regular
           );
         }
       }
@@ -86,24 +85,24 @@ const StyledContainer = styled.label`
       if ($disabled) {
         return (
           theme?.toggle?.on?.background?.color?.disabled ||
-          inube.toggle.on.background.color.disabled
+          tokens.on.background.color.disabled
         );
       } else {
         return (
           theme?.toggle?.on?.background?.color?.regular ||
-          inube.toggle.on.background.color.regular
+          tokens.on.background.color.regular
         );
       }
     } else {
       if ($disabled) {
         return (
           theme?.toggle?.off?.background?.color?.disabled ||
-          inube.toggle.off.background.color.disabled
+          tokens.off.background.color.disabled
         );
       } else {
         return (
           theme?.toggle?.off?.background?.color?.regular ||
-          inube.toggle.off.background.color.regular
+          tokens.off.background.color.regular
         );
       }
     }
@@ -115,24 +114,24 @@ const StyledContainer = styled.label`
         if ($disabled) {
           return (
             theme?.toggle?.on?.background?.color?.disabled ||
-            inube.toggle.on.background.color.disabled
+            tokens.on.background.color.disabled
           );
         } else {
           return (
             theme?.toggle?.on?.background?.color?.hover ||
-            inube.toggle.on.background.color.hover
+            tokens.on.background.color.hover
           );
         }
       } else {
         if ($disabled) {
           return (
             theme?.toggle?.off?.background?.color?.disabled ||
-            inube.toggle.off.background.color.disabled
+            tokens.off.background.color.disabled
           );
         } else {
           return (
             theme?.toggle?.off?.background?.color?.hover ||
-            inube.toggle.off.background.color.hover
+            tokens.off.background.color.hover
           );
         }
       }

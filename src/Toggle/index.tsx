@@ -1,5 +1,4 @@
 import { MdDone, MdClose } from "react-icons/md";
-import { inube } from "@inubekit/foundations";
 import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
 import { IIconAppearance, Icon } from "@inubekit/icon";
@@ -12,6 +11,7 @@ import {
 import { IToggleSize } from "./props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { tokens } from "./Tokens/tokens";
 
 interface IToggle {
   id?: string;
@@ -40,11 +40,11 @@ const Toggle = (props: IToggle) => {
     padding = "0px",
   } = props;
 
-  const theme: typeof inube = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) as { toggle: typeof tokens };
   const onIconAppearance = (theme?.toggle?.on?.icon?.appereance ||
-    inube.toggle.on.icon.appereance) as IIconAppearance;
+    tokens.on.icon.appereance) as IIconAppearance;
   const offIconAppearance = (theme?.toggle?.off?.icon?.appereance ||
-    inube.toggle.off.icon.appereance) as IIconAppearance;
+    tokens.off.icon.appereance) as IIconAppearance;
 
   const interceptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {

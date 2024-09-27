@@ -17,7 +17,7 @@ const story = {
 const Default = (args: IToggle) => <ToggleController {...args} />;
 Default.args = {
   id: "id",
-  disabled: true,
+  disabled: false,
   name: "name",
   value: "value",
   checked: true,
