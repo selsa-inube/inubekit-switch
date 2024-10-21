@@ -1,3 +1,15 @@
+# v3.8.2 (Mon Oct 21 2024)
+
+#### ⚠️ Pushed to `main`
+
+- refactor: change layout from stack to two-column grid ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 1
+
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v3.8.1 (Thu Oct 10 2024)
 
 #### ⚠️ Pushed to `main`
