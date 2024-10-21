@@ -25,7 +25,7 @@ Default.args = {
   onChange: action("checked"),
   margin: "0px",
   padding: "0px",
-  children: "Label",
+  children: "Accept Terms & Conditions and Personal Data policy.",
 };
 export { Default };
 export default story;

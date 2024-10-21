@@ -1,5 +1,4 @@
 import { MdDone, MdClose } from "react-icons/md";
-import { Stack } from "@inubekit/stack";
 import { Label } from "@inubekit/label";
 import { IIconAppearance, Icon } from "@inubekit/icon";
 import {
@@ -12,6 +11,7 @@ import { IToggleSize } from "./props";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { tokens } from "./Tokens/tokens";
+import { Grid } from "@inubekit/grid";
 
 interface IToggle {
   id?: string;
@@ -55,7 +55,13 @@ const Toggle = (props: IToggle) => {
   };
 
   return (
-    <Stack alignItems="center" gap="8px" margin={margin} padding={padding}>
+    <Grid
+      templateColumns="auto 1fr"
+      alignItems="center"
+      margin={margin}
+      padding={padding}
+      gap="8px"
+    >
       <StyledContainer $size={size} $checked={checked} $disabled={disabled}>
         <StyledInput
           id={id}
@@ -86,7 +92,7 @@ const Toggle = (props: IToggle) => {
           {children}
         </Label>
       )}
-    </Stack>
+    </Grid>
   );
 };
 export { Toggle };
