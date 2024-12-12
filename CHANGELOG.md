@@ -1,3 +1,15 @@
+# v3.8.3 (Thu Dec 12 2024)
+
+#### 🐛 Bug Fix
+
+- Add TOKENS.md document [#55](https://github.com/selsa-inube/inubekit-toggle/pull/55) ([@CristianRojas-47](https://github.com/CristianRojas-47))
+
+#### Authors: 1
+
+- Cristian Rojas ([@CristianRojas-47](https://github.com/CristianRojas-47))
+
+---
+
 # v3.8.2 (Mon Oct 21 2024)
 
 #### ⚠️ Pushed to `main`
